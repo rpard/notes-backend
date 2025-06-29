@@ -5,8 +5,8 @@ mongoose.set('strictQuery', false)
 const url = process.env.MONGODB_URI
 
 console.log('connecting to', url)
-mongoose.connect(url)
-
+mongoose
+.connect(url)
   .then(result => {
     console.log('connected to MongoDB')
   })
@@ -26,6 +26,5 @@ noteSchema.set('toJSON', {
     delete returnedObject.__v
   }
 })
-
 
 module.exports = mongoose.model('Note', noteSchema)
